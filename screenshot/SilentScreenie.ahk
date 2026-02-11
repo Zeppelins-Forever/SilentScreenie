@@ -4,8 +4,8 @@
 ; ║                                                                              ║
 ; ║  Place CaptureRegion.ps1 in the SAME folder as this script.                  ║
 ; ║                                                                              ║
-; ║  Ctrl+Shift+A  — Drag-select a region, copies to clipboard                   ║
-; ║  Ctrl+Shift+Q  — Quit                                                        ║
+; ║  Windows+Ctrl+Shift+A  — Drag-select a region, copies to clipboard                   ║
+; ║  Windows+Ctrl+Shift+Q  — Quit                                                        ║
 ; ╚══════════════════════════════════════════════════════════════════════════════╝
 #Requires AutoHotkey v2.0
 #SingleInstance Force
@@ -31,7 +31,7 @@ if !DllCall("SetProcessDpiAwarenessContext", "Ptr", -4, "Int") {
 ; HOTKEYS
 ; ─────────────────────────────────────────────────────────────────────────────
 
-^+a:: {
+#^+a:: {
     ; --- Virtual screen bounds (spans ALL monitors) ---
     ; SysGet 76-79 gives the bounding rectangle of the entire virtual screen.
     ; On multi-monitor, this can have negative X/Y for monitors left of or
@@ -127,4 +127,4 @@ if !DllCall("SetProcessDpiAwarenessContext", "Ptr", -4, "Int") {
     SetTimer(() => ToolTip(), -800)
 }
 
-^+q::ExitApp
+#^+q::ExitApp
