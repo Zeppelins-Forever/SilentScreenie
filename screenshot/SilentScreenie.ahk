@@ -4,8 +4,8 @@
 ; ║                                                                              ║
 ; ║  Place CaptureRegion.ps1 in the SAME folder as this script.                  ║
 ; ║                                                                              ║
-; ║  Windows+Ctrl+Shift+A  — Drag-select a region, copies to clipboard                   ║
-; ║  Windows+Ctrl+Shift+Q  — Quit                                                        ║
+; ║  Windows+Ctrl+Shift+A  — Drag-select a region, copies to clipboard           ║
+; ║  Windows+Ctrl+Shift+Q  — Quit                                                ║
 ; ╚══════════════════════════════════════════════════════════════════════════════╝
 #Requires AutoHotkey v2.0
 #SingleInstance Force
