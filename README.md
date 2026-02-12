@@ -32,3 +32,18 @@ There are two different ways to use this:
       2. Run `Set-ExecutionPolicy -ExecutionPolicy Unrestricted`. This allows all PowerShell scripts to run on your local machine without issue, but is less secure.
    6. Press `Windows`+`Ctrl`+`Shift`+`A` to take a screenshot. Press `Windows`+`Ctrl`+`Shift`+`Q` to quit the app.
    7. You're done!
+
+### Quirks:
+
+#### "My browser/OS flags this as malware!"
+
+I'm not terribly surprised, since this app utilizes various Windows APIs to take pictures of on-screen content, and also because it uses the AutoHotKey EXE builder, so Windows may see it as having "unexpected content" built in, or something silly like that.
+To run this, you will either have to tell your OS/Browser to allow this file, or build it yourself. I'll leave the former for you to figure out.
+To build it yourself:
+1. Install [AutoHotKey](https://www.autohotkey.com/) version 2.0+ on your system and [download and unzip the Main branch of this repository](https://github.com/Zeppelins-Forever/SilentScreenie/archive/refs/heads/main.zip).
+2. Open "AutoHotKey Dash", then click "Compile"
+3. If prompted, let AutoHotKey Dash download the necessary components.
+4. Under the Main Parameters section of the Ahk2Exe window, set the "Source (Script File)" parameter to the `SilentScreenie.ahk` file in the "screenshot" folder of the downloaded folder. Should be something like `C:\Path\To\Project\Folder\SilentScreenie-main\screenshot\SilentScreenie.ahk`.
+5. Optionally, under the "Options" section, set "Custom Icon (.ico file)" to the `icon-small.ico` file in the "icons" folder
+6. Under "Base File (.bin, .exe)", select the version most suitable for your system (most modern computers can use the `U64` version, but if this will run on a very old, 32-bit computer, choose `U32`). Keep in mind, however, that it MUST be above version 2.0.0. Any options starting with "v1" will NOT work.
+7. Hit "Convert", and you should have an EXE! Make sure your EXE is in the same folder as [CaptureRegion.ps1](https://github.com/Zeppelins-Forever/SilentScreenie/releases/download/v1.0.0/CaptureRegion.ps1), and you're good to go!
