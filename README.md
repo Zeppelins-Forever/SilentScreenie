@@ -3,6 +3,8 @@ A multi-monitor screenshot tool for Windows that doesn't darken the screen.
 
 This is built on top of AutoHotKey 2.0.
 
+<img src="https://github.com/Zeppelins-Forever/SilentScreenie/blob/main/icons/icon.png?raw=true" alt="drawing" width="150"/>
+
 ### Why use this?
 
 - Windows's built-in Snipping Tool, while versatile and useful for OCR, cannot take screenshots spanning across multiple monitors, whereas SilentScreenie can!
