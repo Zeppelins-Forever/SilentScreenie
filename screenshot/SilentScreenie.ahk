@@ -41,14 +41,18 @@ if !DllCall("SetProcessDpiAwarenessContext", "Ptr", -4, "Int") {
     sysW := SysGet(78)   ; SM_CXVIRTUALSCREEN (total width)
     sysH := SysGet(79)   ; SM_CYVIRTUALSCREEN (total height)
 
-    ; --- Full-screen invisible overlay across ALL monitors ---
-    overlay := Gui("+AlwaysOnTop -Caption +ToolWindow")
+    ; Full-screen invisible overlay — NOT topmost, avoids taskbar z-order band
+    overlay := Gui("-Caption +ToolWindow +E0x08000000")
     overlay.BackColor := "000000"
     overlay.Show("x" sysX " y" sysY " w" sysW " h" sysH " NoActivate")
     WinSetTransparent(1, overlay)
+    ; Force to top of non-topmost band, above taskbar visually but not in topmost band
+    DllCall("SetWindowPos", "Ptr", overlay.Hwnd, "Ptr", 0
+        , "Int", sysX, "Int", sysY, "Int", sysW, "Int", sysH
+        , "UInt", 0x0010 | 0x0040)  ; SWP_NOACTIVATE | SWP_SHOWWINDOW
 
-    ; Thin red border to show selection
-    selBox := Gui("+AlwaysOnTop -Caption +ToolWindow")
+    ; Selection box — also non-topmost
+    selBox := Gui("-Caption +ToolWindow +E0x08000000")
     selBox.BackColor := "FF0000"
     WinSetTransparent(1, selBox)
 
